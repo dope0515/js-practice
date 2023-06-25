@@ -4,47 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DOM 탐색</title>
     <link rel="stylesheet" href="../assets/reset.css">
 </head>
-<style>
-    table {
-        width: 100%;
-        table-layout: fixed;
-    }
-    table thead tr {
-        background-color: blue;
-    }
-    table thead tr th {
-        color: #FFFFFF;
-        position: relative;
-    }
-    table thead tr th::after {
-        content: '';
-        width: 1px ;
-        height: 8px;
-        background-color: #FFFFFF;
-        transform: translateY(-50%);
-        position: absolute;
-        top: 50%;
-        right: 0;
-    }
-    table thead tr th:last-child::after {display: none;}
-</style>
+
 <body>
-    <div class="table-wrap">
-        <table>
-            <thead>
-                <tr>
-                    <th rowspan="2">s</th>
-                    <th colspan="2">s</th>
-                </tr>
-                <tr>
-                    <th>살고싶다</th>
-                    <th>죽고싶다</th>
-                </tr>
-            </thead>
-        </table>
-    </div>
+    <!-- <a href="https://www.naver.com" target="_blank">네이버</a> -->
+    <script>
+        const a = document.createElement('a');
+        const href = document.createAttribute('href');
+        const target = document.createAttribute('target');
+        target.value = "_blank";
+        href.value = "https://www.naver.com";
+
+        a.setAttributeNode(href);
+        a.setAttributeNode(target);
+        
+        a.innerText = '네이버';
+        
+        console.log(a);
+        document.body.append(a);
+        //append() : 노드형태의 elment만 인수로 전달가능
+        //innerHTML은 문자열로 DOM생성
+    </script>
 </body>
 </html>
